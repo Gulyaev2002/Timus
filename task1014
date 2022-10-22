@@ -1,0 +1,24 @@
+using System;
+namespace task1014
+{
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+                int g;
+                int Q = Convert.ToInt32(Console.ReadLine());
+                for (int i = 2;i <= Q; i++)
+                {
+                    if (Q % i == 0)
+                    {
+                        g = Q / i;
+                        string p = Convert.ToString(i);
+                        string v = Convert.ToString(g);
+                        Console.WriteLine(p + v);
+                        break;
+                    }
+                }
+                
+            }
+        }
+}
