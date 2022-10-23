@@ -1,40 +1,87 @@
-using System;
-namespace task1021
+namespace _6__Гуляев_Александр
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int N = Convert.ToInt32(Console.ReadLine());
-            short[] s1 = new short[N];
-            short count = 0;
+            //f1();
+            f2();
+        }
+        static void f1()
+        {
+            bool flag = true;
+            int count = 0;
+            int N = 50;
+            int[] mas = new int[N];
+            Random rnd = new Random();
+            for (int i = 0; i < mas.Length; i++)
+            {
+                mas[i] = rnd.Next(0, 5);
+                Console.WriteLine(mas[i] + "\t");
+            }
+            Console.WriteLine("Введите число");
+            int p = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < mas.Length; i++)
+            {
+                if (mas[i] == p) { Console.WriteLine("За " + count + " шагов; находится на " + i + " месте"); flag = false; }
+                    count++;
+            }
+            if (flag) Console.WriteLine("Нет такого");
+        }
+        static void f2()
+        {
+            int count = 0;
+            int N = 50;
+            int L = 0;
+            int R = N;
+            int[] mas = new int[N];
+            Random rnd = new Random();
+            for (int i = 0; i < mas.Length; i++)
+            {
+                mas[i] = rnd.Next(0, 5);
+                Console.Write(mas[i] + "\t");
+            }
             for (int i = 0; i < N; i++)
             {
-                s1[i] = Convert.ToInt16(Console.ReadLine());
-            }
-            int N1 = Convert.ToInt32(Console.ReadLine());
-            short[] s2 = new short[N1];
-            for (int j = 0; j < N1; j++)
-            {
-                s2[j] = Convert.ToInt16(Console.ReadLine());
-            }
-            for (int i = 0; i < N; i++)
-            {
+                int nMin = i;
                 for (int j = 0; j < N; j++)
                 {
-                    if (s1[i] + s2[j] == 10000)
+                    if (mas[i] < mas[nMin])
                     {
-                        count++;
+                        nMin = i; 
                     }
+                    count++;
+                }
+                if (i != nMin)
+                {
+                    int y = mas[i];
+                    mas[i] = mas[nMin];
+                    mas[nMin] = y;
                 }
             }
-            if (count == 0)
+            Console.WriteLine();
+            Console.WriteLine("Введите число\n");
+            int p = Convert.ToInt32(Console.ReadLine());
+            while (L < (R - 1))
             {
-                Console.WriteLine("NO");
+                int sred = (L + R) / 2;
+                if (p < mas[sred])
+                {
+                    R = sred;
+                }
+                else 
+                {
+                    L = sred;
+                }
+                count++;
             }
-            else
+            if (mas[L] == p)
             {
-                Console.WriteLine("YES");
+                Console.WriteLine("Элемент " + p + " найден за " + count + " шагов");
+            }
+            else 
+            {
+                Console.WriteLine("Такого элемента в массиве нет ");
             }
         }
     }
