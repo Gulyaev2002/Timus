@@ -1,24 +1,75 @@
 using System;
 namespace task1014
-{
-        internal class Program
-        {
-            static void Main(string[] args)
+{ 
+   internal class Program
+   {
+      static void Main(string[] args)
+      {
+            int g;
+            float Q = Convert.ToSingle(Console.ReadLine());
+            float t = Q;
+            float h = Q;
+            int y = Convert.ToInt32(Q);
+            int c = 0;
+            int count = 0;
+            int count1 = 0;
+            int count2 = 0;
+            while (h != 1) 
             {
-                int g;
-                int Q = Convert.ToInt32(Console.ReadLine());
-                for (int i = 2;i <= Q; i++)
+                for (int i = 9; i > 1; i--) 
                 {
-                    if (Q % i == 0)
-                    {
-                        g = Q / i;
-                        string p = Convert.ToString(i);
-                        string v = Convert.ToString(g);
-                        Console.WriteLine(p + v);
-                        break;
+                    if (h % i == 0)
+                    { 
+                        h /= i;
+                        c++;
+                            
                     }
                 }
-                
             }
-        }
+            float[] A = new float[c];
+            while (Q != 1)
+            {
+                for (int i = 9; i > 1; i--)
+                {
+                    for (int j = 0; j < A.Length; j++)
+                    {
+                        if (Q % i == 0)
+                        {
+                            A[j]=i;
+                            Q /= i;
+                            Console.Write(A[j]);
+                        }
+                    }
+                }
+            }
+        
+            for (int j = A.Length; j >0; j--)
+            {
+                if( A[j] < 10)
+                {
+                    count1++;
+                }
+                else
+                {
+                    count2++;
+                }
+            }
+            if (count2 == 0)
+            {
+                for (int j = 0; j < A.Length; j++)
+                {
+                    Console.Write(A[j]); 
+                }
+            }
+            else
+            {
+                Console.WriteLine("-1");
+            }
+      }
+                 
+                
+                
+      
+   }
+
 }
