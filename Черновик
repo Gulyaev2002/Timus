@@ -1,0 +1,19 @@
+namespace Черновик
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            f1();
+               
+            
+        }
+        static void f1()
+        {
+            double X = 999;
+            double N = 999;
+            double t = Math.Pow(X, N);
+            Console.WriteLine(t);
+        }
+    }
+}
