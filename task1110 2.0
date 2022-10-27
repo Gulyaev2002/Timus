@@ -1,0 +1,33 @@
+using System;
+namespace task1110
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = Console.ReadLine();
+            double N = Convert.ToSingle(s.Split(' ')[0]);
+            double M = Convert.ToSingle(s.Split(' ')[1]);
+            double Y = Convert.ToSingle(s.Split(' ')[2]);
+            int count = 0;
+            for (int X = 0; X < M-1; X++)
+            {
+                if (Math.Pow(X,N) % M == Y)
+                {
+                    Console.Write(X + " ");
+                    count++;
+                }
+
+            }
+            if (count == 0)
+            {
+                Console.WriteLine("-1");
+            }       
+
+                    
+            
+
+
+        }
+    }
+}
