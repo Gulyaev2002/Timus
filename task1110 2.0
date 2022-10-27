@@ -12,22 +12,18 @@ namespace task1110
             int count = 0;
             for (int X = 0; X < M-1; X++)
             {
-                if (Math.Pow(X,N) % M == Y)
+                double l = X % M;
+                if ( Math.Pow(l,N)%M== Y)
                 {
+
                     Console.Write(X + " ");
                     count++;
                 }
-
             }
             if (count == 0)
             {
                 Console.WriteLine("-1");
             }       
-
-                    
-            
-
-
         }
     }
 }
