@@ -1,8 +1,19 @@
-using System;
 namespace task1110
 {
     internal class Program
     {
+        static int myPow(double i, double j, double k)
+        {
+            double c = 1;
+            double b= i % k;
+            for (int z = 0; z < j; z++)
+            {
+                c *= b;
+            }
+            int g =Convert.ToInt32(c % k);
+            
+            return g;
+        }
         static void Main(string[] args)
         {
             string s = Console.ReadLine();
@@ -13,8 +24,7 @@ namespace task1110
             string s1 = "";
             for (int X = 0; X < M-1; X++)
             {
-                double l = X % M;
-                if ( Math.Pow(l,N)%M== Y)
+                if (myPow(X,N,M)== Y)
                 {
 
                     s1+=X + " ";
