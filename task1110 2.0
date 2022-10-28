@@ -1,11 +1,12 @@
+using System;
 namespace task1110
 {
     internal class Program
     {
-        static int myPow(double i, double j, double k)
+        static int myPow(int i, int j, int k)
         {
-            double c = 1;
-            double b= i % k;
+            int c = 1;
+            int b = i % k;
             for (int z = 0; z < j; z++)
             {
                 c *= b;
@@ -17,9 +18,9 @@ namespace task1110
         static void Main(string[] args)
         {
             string s = Console.ReadLine();
-            double N = Convert.ToSingle(s.Split(' ')[0]);
-            double M = Convert.ToSingle(s.Split(' ')[1]);
-            double Y = Convert.ToSingle(s.Split(' ')[2]);
+            int N = Convert.ToInt32(s.Split(' ')[0]);
+            int M = Convert.ToInt32(s.Split(' ')[1]);
+            int Y = Convert.ToInt32(s.Split(' ')[2]);
             int count = 0;
             string s1 = "";
             for (int X = 0; X < M-1; X++)
