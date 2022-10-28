@@ -9,7 +9,7 @@ namespace task1110
             int b = i % k;
             for (int z = 0; z < j; z++)
             {
-                c *= b;
+                c =(c * b)%k;
             }
             int g =Convert.ToInt32(c % k);
             
