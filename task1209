@@ -1,0 +1,59 @@
+using System.Security;
+using System;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace task1209
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = Convert.ToInt32(Console.ReadLine());
+            int[] mas = new int[N];
+            int max  = 0;
+            string str = "";
+            string str1 = "";
+            int i = 0;
+            int M = 1;
+            for(i = 0; i < mas.Length; i++)
+            {
+                mas[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (i = 0; i < mas.Length; i++)
+            {
+                if (mas[i] > max)
+                {
+                    max = mas[i];
+                }
+            }
+            for (i = 0; i < max; i++)
+            {
+                string M1 = Convert.ToString(M);
+                str += M1;
+                if (str.Length > max)
+                {
+                    break;
+                }
+                M *= 10;
+            }
+            char[] simv = str.ToCharArray();
+            for (i = 0; i < str.Length; i++)
+            {
+                for (int z = 0; z < mas.Length; z++)
+                {
+                    if (mas[z] == i+1)
+                    {
+
+                        str1 += simv[i] + " ";
+                    }
+                }
+            }
+            int ind = str1.Length - 1;
+            str1 = str1.Remove(ind);
+            Console.WriteLine(str1);
+
+
+
+        }
+    }
+}
