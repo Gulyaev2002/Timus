@@ -1,56 +1,48 @@
+using System.Reflection.Metadata;
+
 namespace task2100
 {
     internal class Program
     {
-        static int stro(string s)
-        {
-            int cons = 0;
-            char[] chars = s.ToCharArray();
-            for (int i = 0; i < chars.Length; i++)
-            {
-                cons = 0;
-                if (chars[i] == '+')
-                {
-                    cons+=1;
-                    
-                }
-                else
-                {
-                    cons = 0;
-                }
-                
-            }
-            Console.WriteLine(cons);
-            if (cons == 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return 2;
-            }
-
-
-        }
+        
         static void Main(string[] args)
         {
             int N = Convert.ToInt32(Console.ReadLine());
             string [] S=new string[N];
             int cons = 0;
-            for(int i=0; i<S.Length; i++)
+            int cons1 = 0;
+            for (int i=0; i<S.Length; i++)
             {
                 S[i] = Console.ReadLine();
             }
             for (int i = 0; i < S.Length; i++)
             {
-                if (stro(S[i]) == 2)
+                cons = 0;
+                char[] chars = S[i].ToCharArray();
+                for (int v = 0; v < chars.Length; v++)
                 {
-                    cons += 2;
+                    cons = 0;
+                    if (chars[i] == '+')
+                    {
+                        cons ++;
+
+                    }
+                    else
+                    {
+                        cons;
+                    }
+
+                }
+                Console.WriteLine(cons);
+                
+                if (cons==1)
+                {
+                    cons1 += 2;
                     
                 }
                 else
                 {
-                    cons++;
+                    cons1++;
                 }
             }
             if (cons == 13)
