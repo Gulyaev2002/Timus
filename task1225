@@ -1,0 +1,20 @@
+using System;
+namespace task1225
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = Convert.ToInt32(Console.ReadLine());
+            int []mas=new int[N+1];
+            mas[1] = 2;
+            mas[2] = 2;
+            for (int i = 3; i < mas.Length; i++)
+            {
+                mas[i] = mas[i - 1] + mas[i - 2];
+            }
+            Console.WriteLine(mas[N]);
+
+        }
+    }
+}
