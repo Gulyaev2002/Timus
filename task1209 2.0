@@ -13,7 +13,6 @@ namespace task1209
             int max  = 0;
             
             string str = "";
-            string str1 = "";
             int i = 0;
             int M = 0;
             int z = 0;
@@ -44,31 +43,30 @@ namespace task1209
                 }
 
             }
-            Console.WriteLine(cons);
             int []mas2=new int[cons];
-            for ( z= 0; z < mas2.Length; z++)
+            for (z= 0; z < mas2.Length; z++)
             {
                 if (mas1[z] != 0)
                 {
                     mas2[z] = mas1[z];
                 }
             }
-
-            for (z = 0; z < mas2.Length; z++)
+            for (i = 0; i < mas.Length; i++)  
             {
-                for (i = 0; i < mas.Length; i++)
+                for (z = 0; z < mas2.Length; z++)
                 {
                     if (mas2[z] == mas[i])
                     {
                         str += "1 ";
                     }
-                    else
+                    if (mas2[z] != mas[i])
                     {
                         str += "0 ";
                     }
-                    
                 }
             }
+            int ind = str.Length - 1;
+            str = str.Remove(ind);
             Console.WriteLine(str);
             //for (i = 0; i < max; i++)
             //{
@@ -95,9 +93,6 @@ namespace task1209
             //int ind = str1.Length - 1;
             //str1 = str1.Remove(ind);
             //Console.WriteLine(str1);
-
-
-
         }
     }
 }
