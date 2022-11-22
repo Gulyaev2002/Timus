@@ -51,19 +51,33 @@ namespace task1209
                     mas2[z] = mas1[z];
                 }
             }
-            for (i = 0; i < mas.Length; i++)  
+            cons = 0;
+            for (i = 0; i < mas.Length; i++)
             {
                 for (z = 0; z < mas2.Length; z++)
+                    
                 {
                     if (mas2[z] == mas[i])
                     {
-                        str += "1 ";
+                        cons++;
+                        
                     }
                     if (mas2[z] != mas[i])
                     {
-                        str += "0 ";
+                        cons += 0;
                     }
                 }
+                if (cons==1)
+                {
+                    str += "1 ";
+                    
+                }
+                if (cons==0)
+                {
+                    str += "0 ";
+                    
+                }
+                cons = 0;
             }
             int ind = str.Length - 1;
             str = str.Remove(ind);
@@ -93,6 +107,9 @@ namespace task1209
             //int ind = str1.Length - 1;
             //str1 = str1.Remove(ind);
             //Console.WriteLine(str1);
+
+
+
         }
     }
 }
