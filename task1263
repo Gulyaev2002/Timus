@@ -1,0 +1,32 @@
+using System.Security.Cryptography.X509Certificates;
+using System;
+namespace task1263
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string str = Console.ReadLine();
+            int N = Convert.ToInt32(str.Split(" ")[0]);
+            int M = Convert.ToInt32(str.Split(" ")[1]);
+            double M1 = Convert.ToSingle(M);
+            int[] mas1 = new int[N];
+            
+            for (int i = 0; i < M; i++)
+            {
+                int ind1 = Convert.ToInt32(Console.ReadLine());
+                int ind = ind1 - 1;
+                mas1[ind] += 1;
+            }
+            for (int i = 0; i < mas1.Length; i++)
+            {
+                double d = Convert.ToSingle(mas1[i] * 100 / M1);
+                Console.WriteLine(string.Format("{0:F2}", d)+" % ");
+            }
+            
+
+
+
+        }
+    }
+}
