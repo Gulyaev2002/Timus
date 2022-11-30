@@ -1,0 +1,132 @@
+using static System.Net.Mime.MediaTypeNames;
+using System;
+namespace task1893
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string s= Console.ReadLine();
+            char[] simv = s.ToCharArray();
+            char M = simv[s.Length - 1];
+            int ind = s.Length - 1;
+            int ch = Convert.ToInt32(s.Remove(ind));
+            if (M=='A')
+            {           
+                Console.WriteLine("window");
+                
+            }
+            else
+            {
+                if (M == 'B')
+                {
+                    if ((ch >= 21) && (ch <= 65))
+                    {
+                        Console.WriteLine("aisle");
+                        
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("neither");
+                    }
+
+                }
+                else
+                {
+                    if (M == 'C')
+                    {
+                        Console.WriteLine("aisle");
+                    }
+                    else
+                    {
+                        if (M == 'D')
+                        {
+                            if (ch <= 2)
+                            {
+                                Console.WriteLine("window");
+                            }
+                            else
+                            {
+                                if (ch >= 2)
+                                {
+                                    Console.WriteLine("aisle");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("neither");
+                                }
+                            }
+
+
+                        }
+                        else
+                        {
+                            if (M == 'E')
+                            {
+                                if ((ch>=3)&& (ch <= 20))
+                                {
+                                    Console.WriteLine("aisle");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("neither");
+                                }
+                            }
+                            else
+                            {
+                                if (M == 'F')
+                                {
+                                    if ((ch >= 3) && (ch <= 20))
+                                    {
+                                        Console.WriteLine("window");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("neither");
+                                    }
+                                }
+                                else
+                                {
+                                    if ((M == 'G')&& (M == 'H'))
+                                    {
+                                        if ((ch >= 21) && (ch <= 65))
+                                        {
+                                            Console.WriteLine("aisle");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("neither");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (M == 'J')
+                                        {
+                                            Console.WriteLine("neither"); 
+                                        }
+                                        else
+                                        {
+                                            if (M == 'K')
+                                            {
+                                                if ((ch >= 21) && (ch <= 65))
+                                                {
+                                                    Console.WriteLine("window");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("neither");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
