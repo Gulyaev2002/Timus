@@ -8,26 +8,77 @@ namespace task1243
         static void Main(string[] args)
         {
             string N =Console.ReadLine();
-            int S = 0;
-            while (N.Length % 3 != 0)
+            char[] simv = N.ToCharArray();
+            int []mas=new int[simv.Length];
+            for (int i = 0; i < simv.Length; i++)
             {
-                N = "0" + N;
+                mas[i]=Convert.ToByte(simv[i]);
             }
-            int s = N.Length / 3;
-            for (int i = 0; i < s; i++)
+            string D = "";
+            int O = 0;
+            for (int i =0; i<mas.Length;i++)
             {
-                int B = Convert.ToInt32(N.Substring(N.Length - 3));
-                if (i % 2 == 0)
+                if (mas[i] % 7==0)
                 {
-                    S += B;
+                    D += "1";
+                    O = 0;
                 }
                 else
                 {
-                    S -= B;
+
+
+                    if (mas[i] < 7)
+                    {
+
+                        if (i == mas.Length - 1)
+                        {
+                            O = mas[i];
+                        }
+                        else
+                        {
+                            O += 0;
+                            string S = "";
+                            string s = Convert.ToString(mas[i]);
+                            string s1 = Convert.ToString(mas[i + 1]);
+                            S += s + s1;
+                            Console.WriteLine(S);
+                            int z = Convert.ToInt32(S);
+                            D += Convert.ToString(z / 7);
+                            mas[i + 1] = z - (z / 7);
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        if (mas[i] > 7)
+                        {
+
+                            if (i == mas.Length - 1)
+                            {
+                                O = mas[i] % 7;
+                            }
+                            else
+                            {
+                                O += 0;
+                                D += "1";
+                                mas[i + 1] = mas[i] % 7;
+                            }
+                        }
+
+                    }
                 }
-                N = N.Substring(0, N.Length - 3);
             }
-            Console.WriteLine(S % 7);   
+            if (O==0)
+            {
+                Console.WriteLine("0");
+            }
+            else
+            {
+                Console.WriteLine(O);
+            }
+               
             
             
 
