@@ -7,26 +7,23 @@ namespace task1243
     {
         static void Main(string[] args)
         {
-            string N =Console.ReadLine();
-            char[] simv = N.ToCharArray();
-            int []mas=new int[simv.Length];
-            for (int i = 0; i < simv.Length; i++)
+            char[] N =Console.ReadLine().ToCharArray();
+            int []mas=new int[N.Length];
+            for (int i = 0; i < mas.Length; i++)
             {
-                mas[i]=Convert.ToByte(simv[i]);
+                mas[i]=N[i]-'0';
             }
             string D = "";
             int O = 0;
-            for (int i =0; i<mas.Length;i++)
+            for (int i = 0; i < mas.Length; i++)
             {
-                if (mas[i] % 7==0)
+                if (mas[i] == 7)
                 {
                     D += "1";
                     O = 0;
                 }
                 else
                 {
-
-
                     if (mas[i] < 7)
                     {
 
@@ -36,6 +33,7 @@ namespace task1243
                         }
                         else
                         {
+
                             O += 0;
                             string S = "";
                             string s = Convert.ToString(mas[i]);
@@ -44,7 +42,10 @@ namespace task1243
                             Console.WriteLine(S);
                             int z = Convert.ToInt32(S);
                             D += Convert.ToString(z / 7);
-                            mas[i + 1] = z - (z / 7);
+                            string s2 = Convert.ToString(z - (z / 7));
+                            mas[i + 1] += Convert.ToInt32($"{s1}{s2}");
+                            
+
 
                         }
 
@@ -55,34 +56,29 @@ namespace task1243
                         if (mas[i] > 7)
                         {
 
-                            if (i == mas.Length - 1)
+                            if (i == mas.Length-1)
                             {
                                 O = mas[i] % 7;
                             }
                             else
                             {
+                                string S = "";
                                 O += 0;
                                 D += "1";
-                                mas[i + 1] = mas[i] % 7;
+                                string s = Convert.ToString(mas[i]);
+                                string s1 = Convert.ToString(mas[i + 1]);
+                                S += s + s1;
+                                Console.WriteLine(S);
+                                int z = Convert.ToInt32(S);
+                                string s2 = Convert.ToString(z - (z / 7));
+                                mas[i + 1] += Convert.ToInt32($"{s1}{s2}");
                             }
                         }
 
                     }
                 }
             }
-            if (O==0)
-            {
-                Console.WriteLine("0");
-            }
-            else
-            {
-                Console.WriteLine(O);
-            }
-               
-            
-            
-
-
+            Console.WriteLine(O);
         }
-    }
+        }
 }
