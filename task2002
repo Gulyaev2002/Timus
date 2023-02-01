@@ -1,0 +1,42 @@
+import sys
+N=int(sys.stdin.readline())
+x=0
+comanda=[]
+register=[]
+registername=[]
+registerparol=[]
+login=[]
+loginbesarol=[]
+for x in range(N):
+    comanda.append(sys.stdin.readline())
+for x in range(N):
+    com =comanda[x].split(" ")
+    if (com[0]=="register")&(len(com)==3):
+        s=com[1]+" "+com[2]
+        if s in register:
+            print("fail: user already exists")
+        else:
+            register.append(s)
+            registername.append(com[1])
+            registerparol.append(com[2])
+            print("success: new user added")
+    elif(com[0]=="login")&(len(com)==3):
+        s=com[1]+" "+com[2]
+        if (s in register)&(s not in login):
+            login.append(com[1])
+            print("success: user logged in")
+        elif (s in register)&(s in login):
+            print("fail: already logged in")
+        elif(s not in register):
+            if ((com[1] not in registername)&(com[2] in registerparol))&((com[1] not in registername)&(com[2] not in registerparol)):
+                print("fail: no such user")
+            elif((com[1] in registername)&(com[2] not in registerparol)):
+                print("fail: incorrect password")
+    elif(com[0]=="logout")&(len(com)==2):
+        if com[1] in login:
+            login.remove(com[1])
+            print("success: user logged out")
+        elif (com[1] not in login)&(com[1] in registername):
+            print("fail: already logged out")
+        elif(com[1] not in login)&(com[1] not in registername):
+            print("fail: no such user")
