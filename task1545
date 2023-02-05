@@ -1,0 +1,14 @@
+import sys
+N=int(sys.stdin.readline())
+mas=[]
+for i in range(N):
+    mas.append(str(sys.stdin.readline()))
+K=str(sys.stdin.readline())
+for i in range(len(mas)):
+    list(mas[i])
+    print(mas[i][0])
+    print(K)
+    if str(mas[i][0])==K:
+        print(mas[i])
+    else:
+        print('0')
